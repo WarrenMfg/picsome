@@ -67,7 +67,7 @@ div.order-button > button:disabled {
   margin-left: 10px;
 }
 
-img.image-grid {
+img.image-grid-item {
   width: 100%;
   height: 100%;
   object-fit: cover;
