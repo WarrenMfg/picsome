@@ -1,6 +1,7 @@
 import React from 'react';
+import withGlobalStore from './withGlobalStore';
 
-function Cart() {
+function Cart({ state }) {
   return (
     <main className='cart-page'>
       <h1>Check out</h1>
@@ -8,4 +9,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default withGlobalStore(Cart);

@@ -3,25 +3,8 @@ import Header from './Header';
 import Cart from './Cart';
 import Photos from './Photos';
 import { Switch, Route } from 'react-router-dom';
-import withGlobalStore from './withGlobalStore';
 
-function App(props) {
-  const { state: { dispatch } } = props;
-  useEffect(() => {
-    (async () => {
-      try {
-        const res = await fetch(
-          'https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json'
-        );
-        const photos = await res.json();
-        dispatch({ type: 'ADD_PHOTOS', payload: photos });
-      } catch (err) {
-        console.log(err.message, err.stack);
-      }
-    })();
-  }, []);
-  console.log(props);
-
+function App() {
   return (
     <div>
       <Header />
@@ -34,4 +17,4 @@ function App(props) {
   );
 }
 
-export default withGlobalStore(App);
+export default App;
