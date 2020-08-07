@@ -1,4 +1,5 @@
 import React, { useReducer, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { reducer, initialState } from './reducer';
 import { fetchPhotos } from '../api/fetch';
 
@@ -10,9 +11,12 @@ function GlobalStore({ children }) {
   useEffect(() => {
     fetchPhotos(dispatch);
   }, []);
-  console.log(state.photos);
 
   return <Provider value={{ ...state, dispatch }}>{children}</Provider>;
 }
+
+GlobalStore.propTypes = {
+  children: PropTypes.object.isRequired
+};
 
 export { GlobalStore, Consumer };

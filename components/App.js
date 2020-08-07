@@ -5,7 +5,6 @@ import Photos from './Photos';
 import { Switch, Route } from 'react-router-dom';
 
 function App() {
-  console.log('App rerendered');
   return (
     <div>
       <Header />

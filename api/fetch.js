@@ -7,7 +7,7 @@ export const fetchPhotos = async dispatch => {
     );
     const photos = await res.json();
 
-    setTimeout(() => dispatch({ type: 'ADD_PHOTOS', payload: photos }), 2000);
+    dispatch({ type: 'ADD_PHOTOS_TO_STATE', payload: photos });
   } catch (err) {
     dispatch({ type: 'ERROR_FETCHING_PHOTOS', payload: err });
     console.log(err.message, err.stack);

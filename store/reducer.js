@@ -3,11 +3,9 @@ function reducer(state, action) {
     case 'FETCHING_PHOTOS':
       return {
         ...state,
-        loading: true,
-        photos: [],
-        error: null
+        loading: true
       };
-    case 'ADD_PHOTOS':
+    case 'ADD_PHOTOS_TO_STATE':
       return {
         ...state,
         loading: false,
@@ -29,6 +27,11 @@ function reducer(state, action) {
         photos: [ ...photos ]
       };
     }
+    case 'ADD_PHOTO_TO_CART':
+      return {
+        ...state,
+        cart: [ ...state.cart, action.payload ]
+      };
     default:
       return state;
   }
@@ -37,7 +40,8 @@ function reducer(state, action) {
 const initialState = {
   loading: false,
   photos: [],
-  error: null
+  error: null,
+  cart: []
 };
 
 export { reducer, initialState };

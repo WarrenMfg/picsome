@@ -77,6 +77,20 @@ img.image-grid-item {
   position: relative;
 }
 
+.blur-image {
+  animation: blur-image 0.1s ease-out;
+}
+
+@keyframes blur-image {
+  from,
+  to {
+    filter: blur(0px);
+  }
+  50% {
+    filter: blur(10px);
+  }
+}
+
 .favorite {
   color: var(--red);
   font-size: 1.2rem;
@@ -98,11 +112,22 @@ img.image-grid-item {
 
 .cart {
   color: var(--blue);
-  font-size: 1.2rem;
   position: absolute;
+  margin: 0;
   top: 5px;
   right: 5px;
   cursor: pointer;
+  user-select: none;
+}
+
+.cart span {
+  position: relative;
+  top: -3px;
+  margin: 0 5px;
+}
+
+.cart i {
+  font-size: 1.2rem;
 }
 
 .wide {
