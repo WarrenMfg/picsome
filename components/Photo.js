@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import placeholder from '../utils/placeholder.jpg';
 import PropTypes from 'prop-types';
 
 function Photo({ className, photo, dispatch, cartQuantity }) {
   const [ isHovered, setIsHovered ] = useState(false);
+  const [ isLoaded, setIsLoaded ] = useState(false);
 
   const updateFavorite = id => dispatch({ type: 'UPDATE_FAVORITE', payload: id });
 
@@ -44,7 +46,11 @@ function Photo({ className, photo, dispatch, cartQuantity }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img src={photo.url} className='image-grid-item' />
+      <img
+        src={isLoaded ? photo.url : placeholder}
+        className='image-grid-item'
+        onLoad={() => setIsLoaded(true)}
+      />
       {heartIcon()}
       {cartIcon()}
     </div>

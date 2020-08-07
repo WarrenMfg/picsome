@@ -32,6 +32,18 @@ function reducer(state, action) {
         ...state,
         cart: [ ...state.cart, action.payload ]
       };
+    case 'DELETE_FROM_CART': {
+      state.cart.splice(action.payload, 1);
+      return {
+        ...state,
+        cart: [ ...state.cart ]
+      };
+    }
+    case 'PLACE_ORDER':
+      return {
+        ...state,
+        cart: []
+      };
     default:
       return state;
   }

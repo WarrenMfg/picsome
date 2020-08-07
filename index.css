@@ -42,9 +42,11 @@ main.cart-page {
 
 div.order-button > button {
   border-color: var(--black);
+  border-radius: 1rem;
   cursor: pointer;
   padding: 15px;
   transition: all .2s ease-in-out;
+  width: 200px;
 }
 
 div.order-button > button:focus {
@@ -56,15 +58,35 @@ div.order-button > button:disabled {
 }
 
 .cart-item {
+  box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  margin: 20px 0;
+  margin: 20px auto;
+  width: 75vw;
+  border: 1px solid lightgray;
+  border-radius: 3rem;
+  padding: 1rem 5rem;
+  transition: all 0.2s ease;
+}
+
+.cart-item:hover {
+  box-shadow: 0 0 10px -5px black;
+}
+
+.cart-item .cart-image-container {
+  width: 130px;
+  height: 130px;
+  margin-right: auto;
+  margin-left: 3rem;
 }
 
 .cart-item img {
-  margin-right: auto;
-  margin-left: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 1rem;
 }
 
 img.image-grid-item {

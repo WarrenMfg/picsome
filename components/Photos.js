@@ -1,4 +1,5 @@
 import React from 'react';
+import {useLocation} from 'react-router-dom'
 import Photo from './Photo';
 import { getClass } from '../utils/utils';
 import PropTypes from 'prop-types';
@@ -6,6 +7,9 @@ import withGlobalStore from './withGlobalStore';
 
 function Photos({ state }) {
   const { loading, photos, error, cart, dispatch } = state;
+
+  const location = useLocation()
+  console.log(location)
 
   return (
     <main className='photos'>
