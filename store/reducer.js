@@ -19,6 +19,16 @@ function reducer(state, action) {
         loading: false,
         error: action.payload
       };
+    case 'UPDATE_FAVORITE': {
+      const { photos } = state;
+      const i = photos.findIndex(photo => photo.id === action.payload);
+      const updatedPhoto = { ...photos[i], isFavorite: !photos[i].isFavorite };
+      photos.splice(i, 1, updatedPhoto);
+      return {
+        ...state,
+        photos: [ ...photos ]
+      };
+    }
     default:
       return state;
   }

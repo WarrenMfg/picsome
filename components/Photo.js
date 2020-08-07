@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 
-function Photo({ className, photo }) {
+function Photo({ className, photo, dispatch }) {
+  console.log(photo.id, 'rerendered');
   const [ isHovered, setIsHovered ] = useState(false);
+
+  const updateFavorite = id => {
+    dispatch({type: 'UPDATE_FAVORITE', payload: id})
+  }
 
   return (
     <div
@@ -13,7 +18,7 @@ function Photo({ className, photo }) {
       {
         isHovered &&
         <>
-          <i className='ri-heart-line favorite' />
+          <i className={`favorite ${photo.isFavorite ? 'ri-heart-fill' : 'ri-heart-line'}`}onClick={() => updateFavorite(photo.id)} />
           <i className='ri-add-circle-line cart' />
         </>
       }
@@ -21,4 +26,10 @@ function Photo({ className, photo }) {
   );
 }
 
-export default Photo;
+export default React.memo(Photo, (prevProps, nextProps) => {
+  if (prevProps.photo.isFavorite === nextProps.photo.isFavorite) {
+    return true
+  } else {
+    return false
+  }
+});

@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Header from './Header';
 import Cart from './Cart';
 import Photos from './Photos';
 import { Switch, Route } from 'react-router-dom';
 
 function App() {
+  console.log('App rerendered');
   return (
     <div>
       <Header />
