@@ -20,11 +20,12 @@ function reducer(state, action) {
     case 'UPDATE_FAVORITE': {
       const { photos } = state;
       const i = photos.findIndex(photo => photo.id === action.payload);
-      const updatedPhoto = { ...photos[i], isFavorite: !photos[i].isFavorite };
-      photos.splice(i, 1, updatedPhoto);
+      const updatedPhotoObj = { ...photos[i], isFavorite: !photos[i].isFavorite };
+      const newPhotosArr = photos.slice();
+      newPhotosArr.splice(i, 1, updatedPhotoObj);
       return {
         ...state,
-        photos: [ ...photos ]
+        photos: [ ...newPhotosArr ]
       };
     }
     case 'ADD_PHOTO_TO_CART':
