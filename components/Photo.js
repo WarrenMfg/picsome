@@ -6,6 +6,7 @@ function Photo({ className, photo, dispatch, cartQuantity }) {
   const [ isHovered, setIsHovered ] = useState(false);
   const [ isLoaded, setIsLoaded ] = useState(false);
 
+  // click handlers
   const updateFavorite = id => dispatch({ type: 'UPDATE_FAVORITE', payload: id });
 
   const addToCart = (e, photo) => {
@@ -16,6 +17,7 @@ function Photo({ className, photo, dispatch, cartQuantity }) {
     dispatch({ type: 'ADD_PHOTO_TO_CART', payload: photo });
   };
 
+  // render logic
   const heartIcon = () => {
     if (photo.isFavorite) {
       return <i className='favorite ri-heart-fill' onClick={() => updateFavorite(photo.id)} />;
