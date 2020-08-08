@@ -34,9 +34,10 @@ function Photo({ className, photo, dispatch, cartQuantity }) {
           <i className='ri-shopping-cart-fill' onClick={e => addToCart(e, photo)} />
         </p>
       );
-    }
-    if (isHovered) {
+    } else if (isHovered) {
       return <i className='ri-add-circle-line cart' onClick={e => addToCart(e, photo)} />;
+    } else {
+      return null;
     }
   };
 
